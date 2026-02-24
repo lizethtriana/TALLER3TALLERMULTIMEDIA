@@ -1,24 +1,25 @@
-import Pokemon from "./models/Pokemon";
-import { fecthPokemon } from "./services/api";
-import { showPokemon } from "./ui/ui";
+import { fetchPokemon } from "./services/api.js";
+import { showPokemon } from "./ui/ui.js";
 
-let current =25; //25 es Pikachu
+let current = 25; // Pikachu
 
 async function loadPokemon(id) {
-    cons Pokemon=await fecthPokemon(id);
-    showPokemon(pokemon);
+    const pokemon = await fetchPokemon(id);
+    if (pokemon) {
+        showPokemon(pokemon);
+    }
 }
 
-//INICIAL
+// CARGA INICIAL
 loadPokemon(current);
 
-//NAVEGACION
-document.querySelector(".next").addEventListener("click",()=>{
-    current ++;
+// NAVEGACIÓN
+document.getElementById("next").addEventListener("click", () => {
+    current++;
     loadPokemon(current);
 });
 
-document.querySelector(".prev").addEventListener("click",()=>{
-    if (current > 1)current --;
+document.getElementById("prev").addEventListener("click", () => {
+    if (current > 1) current--;
     loadPokemon(current);
 });
