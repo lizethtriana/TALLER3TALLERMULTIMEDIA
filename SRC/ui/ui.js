@@ -2,8 +2,8 @@ export function showPokemon(pokemon){
 
     //DATOS DEL POKEMON
     document.getElementById(/*imagen*/).src=pokemon.sprite;
-    document.getElementById().textContent=capitalize(pokemon.name);
-    document.getElementById().textContent="#"+pokemon.id.toString().padStart(3,"0");
+    document.getElementById(/*imagen*/).textContent=capitalize(pokemon.name);
+    document.getElementById(/*imagen*/).textContent="#"+pokemon.id.toString().padStart(3,"0");
 
     //TIPOS
     const typesDiv=document.querySelector(".types");
@@ -17,5 +17,5 @@ export function showPokemon(pokemon){
 }   
 function capitalize (word){
     return word.charAt(0).toUpperCase()+word.slice(1);
-    
+
 }
