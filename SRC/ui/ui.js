@@ -7,6 +7,7 @@ export function showPokemon(pokemon){
     document.getElementsByTagName("body")[0].style.backgroundColor=pokemon.color;
     //TIPOS
     const typesDiv=document.querySelector(".types");
+        const modal = document.querySelector(".modal-content");
     typesDiv.innerHTML="";
     
     pokemon.types.forEach(t =>{
@@ -14,11 +15,11 @@ export function showPokemon(pokemon){
         const span=document.createElement("span");
         span.classList.add("type",t);
         body.className = t;
+        modal.className = "modal-content " + t;
         span.textContent=capitalize(t);
         typesDiv.appendChild(span);
     });
 
-     // CLICK PARA ABRIR MODAL
     document.getElementById("pokemon-img").onclick = () => {
         showModal(pokemon);
     };
@@ -93,5 +94,7 @@ function showModal(pokemon) {
 
 function capitalize (word){
     return word.charAt(0).toUpperCase()+word.slice(1);
-
+    
 }
+
+

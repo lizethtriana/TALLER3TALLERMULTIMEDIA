@@ -175,30 +175,152 @@ button:active {
     display: none;
 }
 #modal-img {
-    width: 200px;
-    margin-bottom: 10px;
+    width: 160px;
+    margin: 15px auto;
+    display: block;
+    background: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: inset 0 10px 50px rgba(0,0,0,0.2);
 }
 .modal-content {
-     background: linear-gradient(145deg, #ffffff, #f3f3f3);
-    padding: 30px;
-    border-radius: 35px;
-    width: 550px;
-    text-align: center;
+    margin: 5px;
+    width: 600px;
+    height: 1150px;
+    padding: 20px;
+    border-radius: 30px;
     position: relative;
     animation: fadeIn 0.3s ease;
+    color: rgb(0, 0, 0);
+
+    background: rgba(43, 43, 69, 0.8);
+    backdrop-filter: blur(20px);
+
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+
+    /* Marco carta */
+    border: 20px solid #000000;
+     border-radius: 50px;
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(255,255,255,0.8);
 }
+
+
+/* Fondo segun tipo */
+.modal-content.fire {
+  background: linear-gradient(145deg, #ff9a3c, #ff5722);
+}
+
+.modal-content.water {
+  background: linear-gradient(145deg, #6ec6ff, #1e88e5);
+}
+
+.modal-content.grass {
+  background: linear-gradient(145deg, #9ccc65, #43a047);
+}
+
+.modal-content.electric {
+  background: linear-gradient(145deg, #fff176, #fbc02d);
+}
+
+.modal-content.psychic {
+  background: linear-gradient(145deg, #f48fb1, #d81b60);
+}
+
+.modal-content.ice {
+  background: linear-gradient(145deg, #b2ebf2, #00acc1);
+}
+
+.modal-content.dragon {
+  background: linear-gradient(145deg, #9575cd, #512da8);
+}
+
+.modal-content.dark {
+  background: linear-gradient(145deg, #8d6e63, #3e2723);
+}
+
+.modal-content.fairy {
+  background: linear-gradient(145deg, #f8bbd0, #ec407a);
+}
+
+.modal-content.poison {
+  background: linear-gradient(145deg, #ce93d8, #8e24aa);
+}
+
+.modal-content.ground {
+  background: linear-gradient(145deg, #d7ccc8, #8d6e63);
+}
+
+.modal-content.rock {
+  background: linear-gradient(145deg, #d4c4a8, #8d6e63);
+}
+
+.modal-content.fighting {
+  background: linear-gradient(145deg, #ef5350, #b71c1c);
+}
+
+.modal-content.ghost {
+  background: linear-gradient(145deg, #b39ddb, #4527a0);
+}
+
+.modal-content.steel {
+  background: linear-gradient(145deg, #cfd8dc, #607d8b);
+}
+
+.modal-content.bug {
+  background: linear-gradient(145deg, #dcedc8, #7cb342);
+}
+
+.modal-content.flying {
+  background: linear-gradient(145deg, #c5cae9, #5c6bc0);
+}
+
+.modal-content.normal {
+  background: linear-gradient(145deg, #eeeeee, #9e9e9e);
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#pokemon-name {
+    text-transform: capitalize;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+.hp {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
 
 /*TITULOS*/
 .modal-content h2 {
     text-transform: capitalize;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 45px;
+    border-bottom: 10px solid #000000;
+    padding-bottom: 5px;
 }
 
+
 .modal-content h3 {
-    margin-top: 20px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
+    margin-top: 10px;
+    font-size: 40px;
+    border-bottom: 5px solid #000000;
+    padding-bottom: 15px;
 }
 
 /*LISTAS*/
@@ -214,10 +336,18 @@ button:active {
 
 #close-btn {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 10px;
+    font-size: 40px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 20px;
+    color: #000000;
+    transition: 0.2s ease;
+}
+
+#close-btn:hover {
+    transform: scale(1.2);
+    color: red;
 }
 @keyframes fadeIn {
     from {
@@ -232,18 +362,39 @@ button:active {
 
 /*ESTADISTICAS*/
 .stat-bar {
-    background: #ddd;
+    background: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    height: 8px;
+    height: 10px;
     margin: 5px 0 15px 0;
 }
 
 .stat-fill {
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    height: 100%;
+    background: #000000;
+    background: linear-gradient(90deg, #1a4d7a, #15b6bf);
+    height: 200%;
     transition: width 0.5s ease;
+    
 }
+
+.stat-bar {
+    background: #000000;
+    border-radius: 2px;
+    height: 15px;
+    margin: 2px;;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+
+.stat-fill {
+    background:#ffffff;
+    background: #000000;
+    height: 500%;
+    border-radius: 1px;
+    transition: width 0.6s ease;
+}
+
 
 /*ID*/
 #pokemon-id {
