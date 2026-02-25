@@ -1,29 +1,39 @@
 export function showPokemon(pokemon){
 
-    //DATOS DEL POKEMON
-    document.getElementById("pokemon-img").src=pokemon.sprite;
-    document.getElementById("pokemon-name").textContent=capitalize(pokemon.name);
-    document.getElementById("pokemon-id").textContent="#"+pokemon.id.toString().padStart(3,"0");
-    document.getElementsByTagName("body")[0].style.backgroundColor=pokemon.color;
-    //TIPOS
-    const typesDiv=document.querySelector(".types");
-        const modal = document.querySelector(".modal-content");
-    typesDiv.innerHTML="";
-    
+    const body = document.body;
+    const modal = document.querySelector(".modal-content");
+
+    // DATOS PRINCIPALES
+    document.getElementById("pokemon-img").src = pokemon.sprite;
+    document.getElementById("pokemon-name").textContent = capitalize(pokemon.name);
+    document.getElementById("pokemon-id").textContent =
+        "#" + pokemon.id.toString().padStart(3,"0");
+
+    // LIMPIAR CLASES ANTERIORES
+    body.className = "";
+    modal.className = "modal-content";
+
+    // USAR EL PRIMER TIPO COMO PRINCIPAL
+    const mainType = pokemon.types[0];
+    body.classList.add(mainType);
+    modal.classList.add(mainType);
+
+    // TIPOS VISUALES
+    const typesDiv = document.querySelector(".types");
+    typesDiv.innerHTML = "";
+
     pokemon.types.forEach(t =>{
-        const body = document.getElementsByTagName("body")[0];
-        const span=document.createElement("span");
-        span.classList.add("type",t);
-        body.className = t;
-        modal.className = "modal-content " + t;
-        span.textContent=capitalize(t);
+        const span = document.createElement("span");
+        span.classList.add("type", t);
+        span.textContent = capitalize(t);
         typesDiv.appendChild(span);
     });
 
+    // CLICK PARA ABRIR MODAL
     document.getElementById("pokemon-img").onclick = () => {
         showModal(pokemon);
     };
-}  
+}
 
 function showModal(pokemon) {
 
