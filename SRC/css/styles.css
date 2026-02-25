@@ -374,7 +374,7 @@ button:active {
     margin-top: 10px;
     gap: 15px;
 }
-
+/*abilidades*/
 .abilities-grid li{
     background: rgba(255,255,255,0.25);
     padding: 12px;
@@ -426,6 +426,13 @@ button:active {
     align-items: center;
     gap: 10px;
     margin-bottom: 12px;
+}
+
+/* El número a la derecha */
+.stat-number {
+    text-align: right;
+    font-family: monospace;
+    font-size: 16px;
 }
 
 .stat-bar {

@@ -61,17 +61,18 @@ function showModal(pokemon) {
         const li = document.createElement("li");
         li.classList.add("stat-item");
 
-        // Etiqueta
-        const label = document.createElement("div");
-        label.classList.add("stat-label");
-        label.innerHTML = `<span>${capitalize(s.name)}</span><span>${s.value}</span>`;
+        // 1. Nombre (Izquierda)
+        const label = document.createElement("span");
+        label.classList.add("stat-name");
+        label.textContent = capitalize(s.name);
 
-        // Barra
+        
+        // 2. Barra (Centro)
         const bar = document.createElement("div");
         bar.classList.add("stat-bar");
-
         const fill = document.createElement("div");
         fill.classList.add("stat-fill");
+        
 
         // Pokémon stats van de 0 a 255
         fill.style.width = (s.value / 255 * 100) + "%";
@@ -87,8 +88,16 @@ function showModal(pokemon) {
 
         bar.appendChild(fill);
 
+        // 3. Número (Derecha)
+        const number = document.createElement("span");
+        number.classList.add("stat-number");
+        number.textContent = s.value;
+        
+        // Agregamos en orden: nombre -> barra -> número
         li.appendChild(label);
         li.appendChild(bar);
+        li.appendChild(number);
+
 
         statsList.appendChild(li);
     });
