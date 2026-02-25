@@ -175,27 +175,33 @@ button:active {
     display: none;
 }
 #modal-img {
-    width: 160px;
-    margin: 15px auto;
+    width: 180px;
+    background-color: #1d173c;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 0 auto 20px auto;
     display: block;
-    background: #000000;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: inset 0 10px 50px rgba(0,0,0,0.2);
+}
+/* Información básica (ID, Altura, Peso) alineada a la izquierda */
+.modal-info {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 1.6;
 }
 .modal-content {
     margin: 5px;
     width: 700px;
-     max-height: 90vh;     
+    max-height: 90vh;     
     overflow-y: auto;
     padding: 20px;
     border-radius: 30px;
     position: relative;
     animation: fadeIn 0.3s ease;
     color: rgb(0, 0, 0);
-
+    /*
     background: rgba(43, 43, 69, 0.8);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);*/
 
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     transition: transform 0.3s ease;
@@ -361,6 +367,58 @@ button:active {
     }
 }
 
+/* Habilidades en dos columnas */
+.abilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
+    gap: 15px;
+}
+
+.abilities-grid li{
+    background: rgba(255,255,255,0.25);
+    padding: 12px;
+    border-radius: 14px;
+    font-weight: bold;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transition: all 0.2s ease;
+}
+
+.abilities-grid li:hover{
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.35);
+}
+
+.modal-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    text-align: center;
+}
+
+/* El primer elemento ocupa las 2 columnas y queda centrado */
+.modal-info p:first-child{
+    grid-column: 1 / 3;
+    justify-self: center;
+}
+/* CUADRO */
+.modal-info p{
+    background: rgba(255,255,255,0.2);
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* ID */
+.modal-info p:first-child{
+    grid-column: 1 / 3;
+    text-align: center;
+    font-size: 18px;
+}
+
 /* ESTADISTICAS ORGANIZADAS */
 #modal-stats li {
     display: grid;
@@ -371,14 +429,14 @@ button:active {
 }
 
 .stat-bar {
-    background: #ffffff; /* tu color */
+    background: #ffffff; 
     border-radius: 8px;
     height: 12px;
     overflow: hidden;
 }
 
 .stat-fill {
-    background: linear-gradient(90deg, #1a4d7a, #15b6bf); /* tu degradado */
+    background: linear-gradient(90deg, #1a4d7a, #15b6bf); 
     height: 100%;  
     border-radius: 8px;
     transition: width 0.5s ease;
