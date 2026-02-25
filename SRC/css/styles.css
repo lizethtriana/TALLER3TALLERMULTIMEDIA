@@ -7,12 +7,50 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
 }
+
+body.normal { 
+  background: #bdbdbd; color: #000;}
+body.electric{ 
+  background: #f7d02c; color: #000;}
+body.fire { 
+  background: #ee8130;}
+body.ground { 
+  background: #e2bf65;}
+body.rock { 
+  background: #b6a136; color: #000;}
+body.water { 
+  background: #6390f0;}
+body.grass { 
+  background: #7ac74c;}
+body.bug { 
+  background: #a6b91a;}
+body.flying { 
+  background: #a98ff3;}
+body.ice { 
+  background: #96d9d6; color: #000;}
+body.poison { 
+  background: #a33ea1;}
+body.fairy { 
+  background: #d685ad;}
+body.fighting { 
+  background: #c22e28;}
+body.psychic { 
+  background: #f95587;}
+body.steel { 
+  background: #b7b7ce; color: #000; }
+body.ghost { 
+  background: #735797;}
+body.dark { 
+  background: #705746;}
+body.dragon { 
+  background: #6f35fc;}
 
 /*card*/
 .card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
+    background: rgba(43, 43, 69, 0.8);
+    backdrop-filter: blur(20px);
     padding: 30px;
     border-radius: 20px;
     width: 320px;
@@ -20,7 +58,9 @@ body {
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     color: white;
     transition: transform 0.3s ease;
+
 }
+
 .card:hover {
     transform: translateY(-5px);
 }
@@ -141,8 +181,8 @@ button:active {
 .modal-content {
      background: linear-gradient(145deg, #ffffff, #f3f3f3);
     padding: 30px;
-    border-radius: 20px;
-    width: 350px;
+    border-radius: 35px;
+    width: 550px;
     text-align: center;
     position: relative;
     animation: fadeIn 0.3s ease;

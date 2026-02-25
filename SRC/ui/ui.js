@@ -4,14 +4,16 @@ export function showPokemon(pokemon){
     document.getElementById("pokemon-img").src=pokemon.sprite;
     document.getElementById("pokemon-name").textContent=capitalize(pokemon.name);
     document.getElementById("pokemon-id").textContent="#"+pokemon.id.toString().padStart(3,"0");
-
+    document.getElementsByTagName("body")[0].style.backgroundColor=pokemon.color;
     //TIPOS
     const typesDiv=document.querySelector(".types");
     typesDiv.innerHTML="";
-
+    
     pokemon.types.forEach(t =>{
+        const body = document.getElementsByTagName("body")[0];
         const span=document.createElement("span");
         span.classList.add("type",t);
+        body.className = t;
         span.textContent=capitalize(t);
         typesDiv.appendChild(span);
     });
@@ -39,12 +41,44 @@ function showModal(pokemon) {
         abilitiesList.appendChild(li);
     });
 
-    // ESTADÍSTICAS
+   // ESTADÍSTICAS
     const statsList = document.getElementById("modal-stats");
     statsList.innerHTML = "";
+
     pokemon.stats.forEach(s => {
+
         const li = document.createElement("li");
-        li.textContent = capitalize(s.name) + ": " + s.value;
+        li.classList.add("stat-item");
+
+        // Etiqueta
+        const label = document.createElement("div");
+        label.classList.add("stat-label");
+        label.innerHTML = `<span>${capitalize(s.name)}</span><span>${s.value}</span>`;
+
+        // Barra
+        const bar = document.createElement("div");
+        bar.classList.add("stat-bar");
+
+        const fill = document.createElement("div");
+        fill.classList.add("stat-fill");
+
+        // Pokémon stats van de 0 a 255
+        fill.style.width = (s.value / 255 * 100) + "%";
+
+        // Color dinámico según valor
+        if (s.value < 50) {
+            fill.style.background = "#ff4d4d";
+        } else if (s.value < 100) {
+            fill.style.background = "#ffa500";
+        } else {
+            fill.style.background = "#4caf50";
+        }
+
+        bar.appendChild(fill);
+
+        li.appendChild(label);
+        li.appendChild(bar);
+
         statsList.appendChild(li);
     });
 
