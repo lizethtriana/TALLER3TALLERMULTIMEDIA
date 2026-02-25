@@ -1,35 +1,63 @@
+/*fondo*/
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
+/*card*/
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px;
     text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    color: white;
     transition: transform 0.3s ease;
 }
 .card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
 }
-img {
-    width: 150px;
-    transition: transform 0.3s ease;
+.card img {
+    width: 220px;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+    transition: transform 0.4s ease;
 }
+
+.card img:hover {
+    transform: scale(1.08);
+}
+
+#pokemon-name {
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin: 15px 0 5px 0;
+}
+
+/*imagen*/
+
 img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(2deg);
 }
 .type {
     display: inline-block;
-    padding: 5px 10px;
-    border-radius: 8px;
-    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
     margin: 5px;
+    transition: transform 0.2s ease;
+}
+.type:hover {
+    transform: scale(1.1);
 }
 
 /* pokemones los tipos */
@@ -72,26 +100,33 @@ img:hover {
 
 
 
+  
+/*boton*/
 button {
-    padding: 10px 15px;
-    margin: 10px;
+    padding: 10px 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    background: #333;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
     color: white;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #555;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 /* La parte de los modal */
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,15 +134,44 @@ button:hover {
 .hidden {
     display: none;
 }
+#modal-img {
+    width: 200px;
+    margin-bottom: 10px;
+}
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 300px;
+     background: linear-gradient(145deg, #ffffff, #f3f3f3);
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
     text-align: center;
     position: relative;
     animation: fadeIn 0.3s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
+
+/*TITULOS*/
+.modal-content h2 {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.modal-content h3 {
+    margin-top: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+/*LISTAS*/
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content li {
+    margin: 8px 0;
+}
+
+
 #close-btn {
     position: absolute;
     right: 10px;
@@ -116,6 +180,33 @@ button:hover {
     font-size: 20px;
 }
 @keyframes fadeIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*ESTADISTICAS*/
+.stat-bar {
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 8px;
+    margin: 5px 0 15px 0;
+}
+
+.stat-fill {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+/*ID*/
+#pokemon-id {
+    opacity: 0.6;
+    font-size: 14px;
 }
